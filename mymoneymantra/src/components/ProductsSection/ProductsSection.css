@@ -1,0 +1,100 @@
+.products-section {
+    padding: 3rem 0;
+    background-color: #f8f9fa;
+  }
+  
+  .products-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .section-heading {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .heading-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
+  }
+  
+  .highlight-text {
+    color: #3593B0;
+  }
+  
+  .institutions-text {
+    color: #4A9B85;
+  }
+  
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .product-card {
+    display: block;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    overflow: hidden;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-content {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .product-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+  
+  .product-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+  .product-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .heading-text {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
