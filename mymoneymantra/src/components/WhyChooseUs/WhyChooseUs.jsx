@@ -88,19 +88,17 @@ const WhyChooseUs = () => {
 
       <style jsx>{`
         .why-choose-us {
-          width: 100%;
           padding: 80px 20px;
           background: white;
         }
         
         .container {
-          max-width: 1200px;
           margin: 0 auto;
         }
         
         .section-header {
           text-align: center;
-          margin-bottom: 60px;
+          margin-bottom: 0px;
         }
         
         .section-header h2 {
@@ -110,7 +108,7 @@ const WhyChooseUs = () => {
         }
         
         .highlight {
-          color: #3b82f6;
+          color:#3593B0;
           text-decoration: underline;
           text-underline-offset: 6px;
           text-decoration-thickness: 2px;
@@ -119,7 +117,7 @@ const WhyChooseUs = () => {
         .features-container {
           display: flex;
           flex-direction: column;
-          gap: 60px;
+          gap: 0px;
         }
         
         .feature-card {
@@ -149,7 +147,6 @@ const WhyChooseUs = () => {
         }
         
         .content-section {
-          width: 100%;
           max-width: 500px;
           padding: 20px;
         }
@@ -171,7 +168,6 @@ const WhyChooseUs = () => {
           display: flex;
           justify-content: center;
           padding: 20px 0;
-          width: 100%;
         }
         
         .divider-line {
@@ -180,13 +176,11 @@ const WhyChooseUs = () => {
         }
         
         .image-section {
-          width: 100%;
           max-width: 500px;
           padding: 20px;
         }
         
         .feature-image {
-          width: 100%;
           height: auto;
           object-fit: contain;
           filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
@@ -220,6 +214,12 @@ const WhyChooseUs = () => {
           
           .divider-line {
             height: 100px;
+          }
+
+          /* Target only the 3rd image */
+          .feature-card:nth-child(3) .feature-image {
+            max-width: 67%; /* Adjust this value as needed */
+            margin: 0 auto; /* Center the smaller image */
           }
         }
       `}</style>

@@ -66,9 +66,10 @@ const Header = () => {
               ></div>
               <div className="banner-content">
                 <div className="banner-text-container">
-                  <h1 className="banner-title">
-                    {banner.title} <span className="highlight">{banner.highlight}</span>
-                  </h1>
+                <h1 className="banner-title">
+  {banner.title} <span style={{ color: "#3593B0" }} className="highlight">{banner.highlight}</span>
+</h1>
+
                   {banner.description && <p className="banner-description">{banner.description}</p>}
                   <a href={banner.link} className="banner-button">
                     {banner.buttonText}

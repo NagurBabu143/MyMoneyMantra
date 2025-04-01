@@ -3,6 +3,30 @@
     padding: 1rem;
     margin-bottom: 2rem;
   }
+  .rate-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .rate-input-field {
+    width: 100%;
+    padding: 10px;
+    padding-right: 25px; 
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: right;
+  }
+  
+  .percent-symbol {
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    color: #555;
+    pointer-events: none; 
+  }
   
   @media (min-width: 1024px) {
     .emi-calculator-container {
@@ -174,8 +198,8 @@
     outline: none;
     margin-top: 0.5rem;
   }
-  /* Divider Line */
-.divider-line {
+
+.divider-lines {
     height: 1px;
     background-color: #bda9a9;
     margin: 16px 0;

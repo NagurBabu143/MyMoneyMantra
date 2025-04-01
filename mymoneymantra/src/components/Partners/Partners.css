@@ -1,4 +1,4 @@
-/* Tailwind-like utility classes */
+
 .relative {
     position: relative;
   }
@@ -113,7 +113,7 @@
     object-fit: contain;
   }
   
-  /* Blue underline style */
+ 
   .blue-underline {
     position: relative;
     display: inline-block;
@@ -131,7 +131,7 @@
     border-radius: 4px;
   }
   
-  /* Text styles */
+
   .text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -168,7 +168,7 @@
     margin-right: 1rem;
   }
   
-  /* Absolute positioning for decorative images */
+
   .absolute {
     position: absolute;
   }
@@ -206,7 +206,7 @@
     }
   }
   
-  /* Container adjustments */
+
   .partners-container {
     position: relative;
     padding-top: 5rem;

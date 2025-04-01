@@ -7,9 +7,12 @@ import ProductsSection from './components/ProductsSection/ProductsSection';
 import EMICalculator from './components/EMICalculator/EMICalculator';
 import Partners from './components/Partners/Partners';
 import WhyChooseUs from './components/WhyChooseUs/WhyChooseUs';
-// import Home from './pages/Home';
-// import About from './pages/About';
-// import Contact from './pages/Contact';
+import AppDownloadSection from './components/AppDownloadSection/AppDownloadSection';
+import BlogsSection from './components/BlogsSection/BlogsSection';
+import ScrollToTopButton from './components/MyComponent';
+import Footer from './components/Footer/Footer';
+import ChevronButton from './components/ChevronButton';
+
 
 const theme = createTheme();
 
@@ -20,14 +23,28 @@ function App() {
       <Router>
         <Navbar />
         <Header />
-        <ProductsSection /> {/* Static section after Header */}
+        <ProductsSection />
         <EMICalculator/>
         <Partners/>
         <WhyChooseUs/>
+        <AppDownloadSection/>
+        <BlogsSection/>
+        <ScrollToTopButton/>
+         <div>
+              
+               <ChevronButton onClick={() => console.log("Clicked!")} />
+         
+           
+               <ChevronButton
+                 top={100}
+                 right={8}
+                 disabled={true}
+                 ariaLabel="Back button"
+               />
+             </div>
+        <Footer/>
         <Routes>
-          {/* <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} /> */}
+       
         </Routes>
       </Router>
     </ThemeProvider>

@@ -209,33 +209,33 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(null);
   const [submenu, setSubmenu] = useState(null);
   const [submenuPosition, setSubmenuPosition] = useState(0);
-  const [mobileNumber, setMobileNumber] = useState('');
-  const [error, setError] = useState('');
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [error, setError] = useState("");
   const handleMobileNumberChange = (e) => {
-    const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
-    setMobileNumber(value.slice(0, 10)); // Limit to 10 digits
-    setError(''); // Clear error when typing
+    const value = e.target.value.replace(/\D/g, ""); 
+    setMobileNumber(value.slice(0, 10));
+    setError(""); 
   };
 
   const handleSubmit = () => {
     if (!mobileNumber) {
-      setError('Mobile number is required');
+      setError("Mobile number is required");
       return;
     }
     if (mobileNumber.length !== 10) {
-      setError('Please enter a valid 10-digit mobile number');
+      setError("Please enter a valid 10-digit mobile number");
       return;
     }
-    // If validation passes
-    console.log('Mobile number submitted:', mobileNumber);
-    // Here you would typically call an API to send the download link
+   
+    console.log("Mobile number submitted:", mobileNumber);
+    
     alert(`Download link will be sent to ${mobileNumber}`);
     setAppStoreOpen(false);
-    setMobileNumber('');
+    setMobileNumber("");
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSubmit();
     }
   };
@@ -287,16 +287,16 @@ const Navbar = () => {
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        {/* Left side - Logo and Menu Items */}
+        
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          {/* Logo */}
+       
           <img
             src="/images/logo.png"
             alt="Logo"
             style={{ height: 40, marginRight: 20 }}
           />
 
-          {/* Credit Cards Dropdown */}
+        
           <Box
             onMouseEnter={(e) => handleMenuOpen(e, "creditCards")}
             onMouseLeave={handleMenuClose}
@@ -311,6 +311,7 @@ const Navbar = () => {
                   fontWeight: "700",
                   fontFamily: "Manrope, sans-serif",
                   color: "#3593B0",
+                  textTransform: "none",
                   "&:hover": {
                     color: "#3593B0",
                   },
@@ -403,7 +404,7 @@ const Navbar = () => {
             )}
           </Box>
 
-          {/* Loans Dropdown */}
+    
           <Box
             onMouseEnter={(e) => handleMenuOpen(e, "loans")}
             onMouseLeave={handleMenuClose}
@@ -418,6 +419,7 @@ const Navbar = () => {
                   fontWeight: "700",
                   fontFamily: "Manrope, sans-serif",
                   color: "#3593B0",
+                  textTransform: "none",
                   "&:hover": {
                     color: "#3593B0",
                   },
@@ -509,7 +511,7 @@ const Navbar = () => {
             )}
           </Box>
 
-          {/* Insurance Dropdown */}
+      
           <Box
             onMouseEnter={(e) => handleMenuOpen(e, "insurance")}
             onMouseLeave={handleMenuClose}
@@ -524,6 +526,7 @@ const Navbar = () => {
                   fontWeight: "700",
                   fontFamily: "Manrope, sans-serif",
                   color: "#3593B0",
+                  textTransform: "none",
                   "&:hover": {
                     color: "#3593B0",
                   },
@@ -572,7 +575,6 @@ const Navbar = () => {
             )}
           </Box>
 
-          {/* EMI Calculator Dropdown */}
           <Box
             onMouseEnter={(e) => handleMenuOpen(e, "emiCalculator")}
             onMouseLeave={handleMenuClose}
@@ -587,6 +589,7 @@ const Navbar = () => {
                   fontWeight: "700",
                   fontFamily: "Manrope, sans-serif",
                   color: "#3593B0",
+                  textTransform: "none",
                   "&:hover": {
                     color: "#3593B0",
                   },
@@ -643,7 +646,7 @@ const Navbar = () => {
             )}
           </Box>
 
-          {/* Credit Score Dropdown */}
+        
           <Box
             onMouseEnter={(e) => handleMenuOpen(e, "creditScore")}
             onMouseLeave={handleMenuClose}
@@ -658,6 +661,7 @@ const Navbar = () => {
                   fontWeight: "700",
                   fontFamily: "Manrope, sans-serif",
                   color: "#3593B0",
+                  textTransform: "none",
                   "&:hover": {
                     color: "#3593B0",
                   },
@@ -767,12 +771,12 @@ const Navbar = () => {
             )}
           </Box>
 
-          {/* Blogs */}
           <Button
             sx={{
               fontWeight: "700",
               fontFamily: "Manrope, sans-serif",
               color: "#3593B0",
+              textTransform: "none",
               "&:hover": {
                 color: "#3593B0",
               },
@@ -782,10 +786,9 @@ const Navbar = () => {
           </Button>
         </Box>
 
-        {/* Right side - Search, App Icon, Sign In */}
+     
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          {/* Search Icon */}
-
+ 
           {searchOpen && (
             <InputBase
               placeholder="Search..."
@@ -817,355 +820,428 @@ const Navbar = () => {
             <Search sx={{ color: "#fff", fontSize: "1.2rem" }} />
           </IconButton>
 
-          {/* App Store Icon */}
           <Box position="relative" sx={{ mr: 2 }}>
-      <Button 
-        onClick={() => setAppStoreOpen(!appStoreOpen)}
-        sx={{
-          minWidth: 0,
-          p: 1,
-          borderRadius: '50%',
-          '&:hover': { backgroundColor: 'rgba(53, 147, 176, 0.08)' }
-        }}
-      >
-        <img
-          src="/images/icon.png"
-          alt="app icon"
-          style={{ width: "32px", height: "32px" }}
-        />
-      </Button>
-      
-      {appStoreOpen && (
-        <Box
-          position="absolute"
-          top={55}
-          right={0}
-          bgcolor="background.paper"
-          p={3}
-          boxShadow={4}
-          sx={{
-            borderRadius: "12px",
-            zIndex: 1300,
-            width: "320px",
-            border: "1px solid #e0e0e0",
-            '&:before': {
-              content: '""',
-              position: 'absolute',
-              top: '-8px',
-              right: '16px',
-              width: 0,
-              height: 0,
-              borderLeft: '8px solid transparent',
-              borderRight: '8px solid transparent',
-              borderBottom: '8px solid',
-              borderBottomColor: 'background.paper',
-              filter: 'drop-shadow(0px -1px 1px rgba(0,0,0,0.1))'
-            }
-          }}
-        >
-          <Typography variant="h6" sx={{ mb: 2, fontWeight: 600, color: 'primary.main' }}>
-            Mobile Number
-          </Typography>
-          
-          <InputBase
-            placeholder="Enter your Mobile Number"
-            fullWidth
-            value={mobileNumber}
-            onChange={handleMobileNumberChange}
-            onKeyPress={handleKeyPress}
-            sx={{
-              border: `1px solid ${error ? 'error.main' : 'grey.300'}`,
-              borderRadius: "6px",
-              px: 2,
-              py: 1.5,
-              mb: 0.5,
-              fontSize: '0.875rem',
-              backgroundColor: 'grey.50',
-              '&:focus': {
-                borderColor: error ? 'error.main' : 'primary.main',
-                backgroundColor: 'common.white',
-                boxShadow: error ? 'none' : '0 0 0 2px rgba(53, 147, 176, 0.2)'
-              }
-            }}
-            inputProps={{
-              maxLength: 10,
-              inputMode: 'numeric'
-            }}
-          />
-          
-          {error && (
-            <Typography variant="caption" sx={{ 
-              color: "error.main", 
-              mb: 1, 
-              display: "block",
-              fontSize: '0.75rem'
-            }}>
-              {error}
-            </Typography>
-          )}
-          
-          <Typography variant="caption" sx={{ 
-            color: "text.secondary", 
-            mb: 2, 
-            display: "block",
-            fontSize: '0.75rem'
-          }}>
-            *By clicking on proceed you agree to MMM consent
-          </Typography>
-          
-          <Button
-            variant="contained"
-            fullWidth
-            onClick={handleSubmit}
-            sx={{
-              backgroundImage: "linear-gradient(45deg, #3593B0 0%, #4A9B85 100%)",
-              color: "white",
-              fontWeight: 600,
-              py: 1.5,
-              borderRadius: "6px",
-              textTransform: 'none',
-              fontSize: '0.9375rem',
-              '&:hover': {
-                backgroundImage: "linear-gradient(45deg, #4A9B85 0%, #3593B0 100%)",
-                boxShadow: '0 2px 8px rgba(53, 147, 176, 0.4)'
-              },
-            }}
-          >
-            Get Link
-          </Button>
-        </Box>
-      )}
-    </Box>
+            <Button
+              onClick={() => setAppStoreOpen(!appStoreOpen)}
+              sx={{
+                minWidth: 0,
+                p: 1,
+                borderRadius: "50%",
+                "&:hover": { backgroundColor: "rgba(53, 147, 176, 0.08)" },
+              }}
+            >
+              <img
+                src="/images/icon.png"
+                alt="app icon"
+                style={{ width: "32px", height: "32px" }}
+              />
+            </Button>
 
-          {/* Sign In Button */}
+            {appStoreOpen && (
+              <Box
+                position="absolute"
+                top={55}
+                right={0}
+                bgcolor="background.paper"
+                p={3}
+                boxShadow={4}
+                sx={{
+                  borderRadius: "12px",
+                  zIndex: 1300,
+                  width: "320px",
+                  border: "1px solid #e0e0e0",
+                  "&:before": {
+                    content: '""',
+                    position: "absolute",
+                    top: "-8px",
+                    right: "16px",
+                    width: 0,
+                    height: 0,
+                    borderLeft: "8px solid transparent",
+                    borderRight: "8px solid transparent",
+                    borderBottom: "8px solid",
+                    borderBottomColor: "background.paper",
+                    filter: "drop-shadow(0px -1px 1px rgba(0,0,0,0.1))",
+                  },
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{ mb: 2, fontWeight: 600, color: "primary.main" }}
+                >
+                  Mobile Number
+                </Typography>
+
+                <InputBase
+                  placeholder="Enter your Mobile Number"
+                  fullWidth
+                  value={mobileNumber}
+                  onChange={handleMobileNumberChange}
+                  onKeyPress={handleKeyPress}
+                  sx={{
+                    border: `1px solid ${error ? "error.main" : "grey.300"}`,
+                    borderRadius: "6px",
+                    px: 2,
+                    py: 1.5,
+                    mb: 0.5,
+                    fontSize: "0.875rem",
+                    backgroundColor: "grey.50",
+                    "&:focus": {
+                      borderColor: error ? "error.main" : "primary.main",
+                      backgroundColor: "common.white",
+                      boxShadow: error
+                        ? "none"
+                        : "0 0 0 2px rgba(53, 147, 176, 0.2)",
+                    },
+                  }}
+                  inputProps={{
+                    maxLength: 10,
+                    inputMode: "numeric",
+                  }}
+                />
+
+                {error && (
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "error.main",
+                      mb: 1,
+                      display: "block",
+                      fontSize: "0.75rem",
+                    }}
+                  >
+                    {error}
+                  </Typography>
+                )}
+
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color: "text.secondary",
+                    mb: 2,
+                    display: "block",
+                    fontSize: "0.75rem",
+                  }}
+                >
+                  *By clicking on proceed you agree to MMM consent
+                </Typography>
+
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={handleSubmit}
+                  sx={{
+                    backgroundImage:
+                      "linear-gradient(45deg, #3593B0 0%, #4A9B85 100%)",
+                    color: "white",
+                    fontWeight: 600,
+                    py: 1.5,
+                    borderRadius: "6px",
+                    textTransform: "none",
+                    fontSize: "0.9375rem",
+                    "&:hover": {
+                      backgroundImage:
+                        "linear-gradient(45deg, #4A9B85 0%, #3593B0 100%)",
+                      boxShadow: "0 2px 8px rgba(53, 147, 176, 0.4)",
+                    },
+                  }}
+                >
+                  Get Link
+                </Button>
+              </Box>
+            )}
+          </Box>
+
           <Box position="relative" sx={{ ml: 1 }}>
-  <Button
-    variant="contained"
-    onClick={() => setSignInOpen(!signInOpen)}
-    sx={{
-      backgroundImage: "linear-gradient(45deg, #3593B0 0%, #4A9B85 100%)",
-      color: "white",
-      border: "none",
-      fontFamily: "Manrope, sans-serif",
-      padding: "8px 25px",
-      borderRadius: "8px",
-      textTransform: "none",
-      fontWeight: "bold",
-      fontSize: "18px",
-      "&:hover": {
-        backgroundImage: "linear-gradient(45deg, #4A9B85 0%, #3593B0 100%)",
-      },
-    }}
-  >
-    Sign In
-  </Button>
+            <Button
+              variant="contained"
+              onClick={() => setSignInOpen(!signInOpen)}
+              sx={{
+                backgroundImage:
+                  "linear-gradient(45deg, #3593B0 0%, #4A9B85 100%)",
+                color: "white",
+                border: "none",
+                fontFamily: "Manrope, sans-serif",
+                padding: "8px 25px",
+                borderRadius: "8px",
+                textTransform: "none",
+                fontWeight: "bold",
+                fontSize: "18px",
+                "&:hover": {
+                  backgroundImage:
+                    "linear-gradient(45deg, #4A9B85 0%, #3593B0 100%)",
+                },
+              }}
+            >
+              Sign In
+            </Button>
 
-  {signInOpen && (
-    <Box
-      position="absolute"
-      top={60}
-      right={0}
-      bgcolor="white"
-      p={3}
-      boxShadow={3}
-      sx={{
-        borderRadius: "12px",
-        zIndex: 1300,
-        width: "320px",
-        border: "1px solid #e0e0e0",
-        "&:before": {
-          content: '""',
-          position: "absolute",
-          top: "-10px",
-          right: "20px",
-          width: 0,
-          height: 0,
-          borderLeft: "10px solid transparent",
-          borderRight: "10px solid transparent",
-          borderBottom: "10px solid white",
-          filter: "drop-shadow(0 -2px 2px rgba(0,0,0,0.1))"
-        }
-      }}
-    >
-      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-        <Typography variant="h6" sx={{ fontWeight: 600, color: "#3593B0" }}>
-           Login
-        </Typography>
-        <IconButton 
-          size="small" 
-          onClick={() => setSignInOpen(false)}
-          sx={{ color: "#757575" }}
-        >
-          <CloseIcon fontSize="small" />
-        </IconButton>
-      </Box>
+            {signInOpen && (
+              <Box
+                position="absolute"
+                top={60}
+                right={0}
+                bgcolor="white"
+                p={3}
+                boxShadow={3}
+                sx={{
+                  borderRadius: "12px",
+                  zIndex: 1300,
+                  width: "320px",
+                  border: "1px solid #e0e0e0",
+                  "&:before": {
+                    content: '""',
+                    position: "absolute",
+                    top: "-10px",
+                    right: "20px",
+                    width: 0,
+                    height: 0,
+                    borderLeft: "10px solid transparent",
+                    borderRight: "10px solid transparent",
+                    borderBottom: "10px solid white",
+                    filter: "drop-shadow(0 -2px 2px rgba(0,0,0,0.1))",
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    mb: 2,
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: 600, color: "#3593B0" }}
+                  >
+                    Login
+                  </Typography>
+                  <IconButton
+                    size="small"
+                    onClick={() => setSignInOpen(false)}
+                    sx={{ color: "#757575" }}
+                  >
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                </Box>
 
-      <form id="login-form" autoComplete="off" noValidate>
-        {/* Full Name Field */}
-        <Box sx={{ mb: 2 }}>
-          <InputBase
-            placeholder="Full Name"
-            fullWidth
-            sx={{
-              border: "1px solid #e0e0e0",
-              borderRadius: "6px",
-              padding: "10px 12px",
-              fontSize: "0.9rem",
-              bgcolor: "#fafafa",
-              transition: "all 0.3s",
-              "&:focus-within": {
-                bgcolor: "white",
-                borderColor: "#3593B0",
-                boxShadow: "0 0 0 2px rgba(53, 147, 176, 0.2)"
-              },
-              "&.Mui-error": {
-                borderColor: "#f44336",
-              },
-            }}
-            inputProps={{
-              minLength: 3,
-              maxLength: 30,
-              pattern: "^[a-zA-Z ]+$",
-            }}
-            error={!formData.fullName || !/^[a-zA-Z ]+$/.test(formData.fullName)}
-            value={formData.fullName || ""}
-            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-          />
-          {(!formData.fullName || !/^[a-zA-Z ]+$/.test(formData.fullName)) && (
-            <Typography variant="caption" sx={{ color: "#f44336", fontSize: "0.75rem", mt: 0.5, display: "block" }}>
-              Please enter a valid full name
-            </Typography>
-          )}
-        </Box>
+                <form id="login-form" autoComplete="off" noValidate>
+                
+                  <Box sx={{ mb: 2 }}>
+                    <InputBase
+                      placeholder="Full Name"
+                      fullWidth
+                      sx={{
+                        border: "1px solid #e0e0e0",
+                        borderRadius: "6px",
+                        padding: "10px 12px",
+                        fontSize: "0.9rem",
+                        bgcolor: "#fafafa",
+                        transition: "all 0.3s",
+                        "&:focus-within": {
+                          bgcolor: "white",
+                          borderColor: "#3593B0",
+                          boxShadow: "0 0 0 2px rgba(53, 147, 176, 0.2)",
+                        },
+                        "&.Mui-error": {
+                          borderColor: "#f44336",
+                        },
+                      }}
+                      inputProps={{
+                        minLength: 3,
+                        maxLength: 30,
+                        pattern: "^[a-zA-Z ]+$",
+                      }}
+                      error={
+                        !formData.fullName ||
+                        !/^[a-zA-Z ]+$/.test(formData.fullName)
+                      }
+                      value={formData.fullName || ""}
+                      onChange={(e) =>
+                        setFormData({ ...formData, fullName: e.target.value })
+                      }
+                    />
+                    {(!formData.fullName ||
+                      !/^[a-zA-Z ]+$/.test(formData.fullName)) && (
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: "#f44336",
+                          fontSize: "0.75rem",
+                          mt: 0.5,
+                          display: "block",
+                        }}
+                      >
+                        Please enter a valid full name
+                      </Typography>
+                    )}
+                  </Box>
 
-        {/* Mobile Number Field */}
-        <Box sx={{ mb: 2 }}>
-          <InputBase
-            placeholder="Mobile Number"
-            fullWidth
-            sx={{
-              border: "1px solid #e0e0e0",
-              borderRadius: "6px",
-              padding: "10px 12px",
-              fontSize: "0.9rem",
-              bgcolor: "#fafafa",
-              transition: "all 0.3s",
-              "&:focus-within": {
-                bgcolor: "white",
-                borderColor: "#3593B0",
-                boxShadow: "0 0 0 2px rgba(53, 147, 176, 0.2)"
-              },
-              "&.Mui-error": {
-                borderColor: "#f44336",
-              },
-            }}
-            inputProps={{
-              maxLength: 10,
-              inputMode: "numeric",
-              pattern: "^[0-9]{10}$",
-            }}
-            error={!formData.mobile || !/^[0-9]{10}$/.test(formData.mobile)}
-            value={formData.mobile || ""}
-            onChange={(e) => {
-              const value = e.target.value.replace(/\D/g, "").slice(0, 10);
-              setFormData({ ...formData, mobile: value });
-            }}
-          />
-          {(!formData.mobile || !/^[0-9]{10}$/.test(formData.mobile)) && (
-            <Typography variant="caption" sx={{ color: "#f44336", fontSize: "0.75rem", mt: 0.5, display: "block" }}>
-              Please enter a valid 10-digit number
-            </Typography>
-          )}
-        </Box>
+                 
+                  <Box sx={{ mb: 2 }}>
+                    <InputBase
+                      placeholder="Mobile Number"
+                      fullWidth
+                      sx={{
+                        border: "1px solid #e0e0e0",
+                        borderRadius: "6px",
+                        padding: "10px 12px",
+                        fontSize: "0.9rem",
+                        bgcolor: "#fafafa",
+                        transition: "all 0.3s",
+                        "&:focus-within": {
+                          bgcolor: "white",
+                          borderColor: "#3593B0",
+                          boxShadow: "0 0 0 2px rgba(53, 147, 176, 0.2)",
+                        },
+                        "&.Mui-error": {
+                          borderColor: "#f44336",
+                        },
+                      }}
+                      inputProps={{
+                        maxLength: 10,
+                        inputMode: "numeric",
+                        pattern: "^[0-9]{10}$",
+                      }}
+                      error={
+                        !formData.mobile || !/^[0-9]{10}$/.test(formData.mobile)
+                      }
+                      value={formData.mobile || ""}
+                      onChange={(e) => {
+                        const value = e.target.value
+                          .replace(/\D/g, "")
+                          .slice(0, 10);
+                        setFormData({ ...formData, mobile: value });
+                      }}
+                    />
+                    {(!formData.mobile ||
+                      !/^[0-9]{10}$/.test(formData.mobile)) && (
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: "#f44336",
+                          fontSize: "0.75rem",
+                          mt: 0.5,
+                          display: "block",
+                        }}
+                      >
+                        Please enter a valid 10-digit number
+                      </Typography>
+                    )}
+                  </Box>
 
-        {/* Email Field */}
-        <Box sx={{ mb: 2 }}>
-          <InputBase
-            placeholder="Email Address"
-            fullWidth
-            type="email"
-            sx={{
-              border: "1px solid #e0e0e0",
-              borderRadius: "6px",
-              padding: "10px 12px",
-              fontSize: "0.9rem",
-              bgcolor: "#fafafa",
-              transition: "all 0.3s",
-              "&:focus-within": {
-                bgcolor: "white",
-                borderColor: "#3593B0",
-                boxShadow: "0 0 0 2px rgba(53, 147, 176, 0.2)"
-              },
-              "&.Mui-error": {
-                borderColor: "#f44336",
-              },
-            }}
-            error={!formData.email || !/^\S+@\S+\.\S+$/.test(formData.email)}
-            value={formData.email || ""}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          />
-          {(!formData.email || !/^\S+@\S+\.\S+$/.test(formData.email)) && (
-            <Typography variant="caption" sx={{ color: "#f44336", fontSize: "0.75rem", mt: 0.5, display: "block" }}>
-              Please enter a valid email
-            </Typography>
-          )}
-        </Box>
+            
+                  <Box sx={{ mb: 2 }}>
+                    <InputBase
+                      placeholder="Email Address"
+                      fullWidth
+                      type="email"
+                      sx={{
+                        border: "1px solid #e0e0e0",
+                        borderRadius: "6px",
+                        padding: "10px 12px",
+                        fontSize: "0.9rem",
+                        bgcolor: "#fafafa",
+                        transition: "all 0.3s",
+                        "&:focus-within": {
+                          bgcolor: "white",
+                          borderColor: "#3593B0",
+                          boxShadow: "0 0 0 2px rgba(53, 147, 176, 0.2)",
+                        },
+                        "&.Mui-error": {
+                          borderColor: "#f44336",
+                        },
+                      }}
+                      error={
+                        !formData.email ||
+                        !/^\S+@\S+\.\S+$/.test(formData.email)
+                      }
+                      value={formData.email || ""}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                    />
+                    {(!formData.email ||
+                      !/^\S+@\S+\.\S+$/.test(formData.email)) && (
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: "#f44336",
+                          fontSize: "0.75rem",
+                          mt: 0.5,
+                          display: "block",
+                        }}
+                      >
+                        Please enter a valid email
+                      </Typography>
+                    )}
+                  </Box>
 
-        {/* Terms and Conditions */}
-        <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
-          <Checkbox
-            size="small"
-            checked={formData.consent || false}
-            onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-            sx={{
-              color: "#3593B0",
-              padding: 0,
-              mr: 1,
-              '&.Mui-checked': {
-                color: "#3593B0",
-              },
-            }}
-          />
-          <Typography variant="body2" sx={{ color: "#616161", fontSize: "0.8rem" }}>
-            I accept the{" "}
-            <Box component="span" sx={{ color: "#3593B0", cursor: "pointer" }}>
-              Terms & Conditions
-            </Box>
-          </Typography>
-        </Box>
+                 
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
+                    <Checkbox
+                      size="small"
+                      checked={formData.consent || false}
+                      onChange={(e) =>
+                        setFormData({ ...formData, consent: e.target.checked })
+                      }
+                      sx={{
+                        color: "#3593B0",
+                        padding: 0,
+                        mr: 1,
+                        "&.Mui-checked": {
+                          color: "#3593B0",
+                        },
+                      }}
+                    />
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "#616161", fontSize: "0.8rem" }}
+                    >
+                      I accept the{" "}
+                      <Box
+                        component="span"
+                        sx={{ color: "#3593B0", cursor: "pointer" }}
+                      >
+                        Terms & Conditions
+                      </Box>
+                    </Typography>
+                  </Box>
 
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          variant="contained"
-          fullWidth
-          onClick={(e) => {
-            e.preventDefault();
-            if (validateForm()) {
-              console.log("Form submitted:", formData);
-            }
-          }}
-          sx={{
-            backgroundImage: "linear-gradient(45deg, #3593B0 0%, #4A9B85 100%)",
-            color: "white",
-            fontWeight: 600,
-            padding: "10px",
-            fontSize: "1rem",
-            textTransform: "none",
-            borderRadius: "6px",
-            boxShadow: "none",
-            "&:hover": {
-              backgroundImage: "linear-gradient(45deg, #4A9B85 0%, #3593B0 100%)",
-              boxShadow: "0 2px 8px rgba(53, 147, 176, 0.4)"
-            },
-          }}
-        >
-          Continue
-        </Button>
-      </form>
-    </Box>
-  )}
-</Box>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    fullWidth
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (validateForm()) {
+                        console.log("Form submitted:", formData);
+                      }
+                    }}
+                    sx={{
+                      backgroundImage:
+                        "linear-gradient(45deg, #3593B0 0%, #4A9B85 100%)",
+                      color: "white",
+                      fontWeight: 600,
+                      padding: "10px",
+                      fontSize: "1rem",
+                      textTransform: "none",
+                      borderRadius: "6px",
+                      boxShadow: "none",
+                      "&:hover": {
+                        backgroundImage:
+                          "linear-gradient(45deg, #4A9B85 0%, #3593B0 100%)",
+                        boxShadow: "0 2px 8px rgba(53, 147, 176, 0.4)",
+                      },
+                    }}
+                  >
+                    Continue
+                  </Button>
+                </form>
+              </Box>
+            )}
+          </Box>
         </Box>
       </Toolbar>
     </AppBar>

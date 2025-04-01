@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import './Partners.css';
-import decoratorTopLeft from '..//images/5.png'; // Adjust path as needed
-import decoratorBottomRight from '..//images/6.png'; // Adjust path as needed
+import decoratorTopLeft from '..//images/5.png'; 
+import decoratorBottomRight from '..//images/6.png'; 
 
 const Partners = () => {
   const partners = [
@@ -46,7 +46,7 @@ const Partners = () => {
 
   return (
     <div className="relative px-4 py-6 lg:py-8 lg:mt-4 lg:px-0 overflow-hidden partners-container">
-      {/* Top-left decorative image */}
+     
       <img 
         src={decoratorTopLeft} 
         alt="Decoration" 
@@ -104,7 +104,7 @@ const Partners = () => {
         </div>
       </div>
 
-      {/* Bottom-right decorative image */}
+  
       <img 
         src={decoratorBottomRight} 
         alt="Decoration" 
